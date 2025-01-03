@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+<body>
+  <div class="page-container">
+    <h1>Elias Book Note</h1>
+    <br />
+    <% data.forEach(element => { %>
+    <div class="container">
+      <div class="text-contents">
+        <img class="book-cover" src="https://covers.openlibrary.org/b/isbn/<%= element.isbn %>-M.jpg" alt="Book Cover" />
+        <div class="details">
+          <h2 style="color: green" class="book-title"><%= element.title %></h2>
+          <p class="detail">ISBN: <%= element.isbn %></p>
+          <p class="detail">Date Read: <%= element.date_read %>.</p>
+          <p class="detail">
+            How Strongly I Recommend It: <%= element.recommendation_score %>/10
+          </p>
+        </div>
+      </div>
+      <br />
+    </div>
+    <div class="full-text">
+      <p class="summary"><%= element.summary %></p>
+      <h2>MY Note</h2>
+      <p class="note"><%= element.content %></p>
+    </div>
+    <% }) %>
+  </div>
+</body>
+</html>

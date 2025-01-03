@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+<body>
+  <div class="page-container">
+    <h1>Elias Book Note</h1>
+    <h2>Books I've Read</h2>
+    <p>
+      I have reviewed the books I've read. You can find them by ISBN or name of
+      the book.
+    </p>
+    <br />
+    <% data.forEach(element => { %>
+    <div class="container">
+      <div class="text-content">
+        <img class="book-cover" src="https://covers.openlibrary.org/b/isbn/<%= element.isbn %>-M.jpg" alt="Book Cover"/>
+        <h2 class="book-title">
+          <a href="/book?id=<%= element.id %>"> <%= element.title %> </a>
+        </h2>
+        <p class="detail">
+          Date Read: <%= element.date_read %>. How Strongly I Recommend It: <%=
+          element.recommendation_score %>/10
+        </p>
+        <p class="summary"><%= element.summary %></p>
+        <a href="/book?id=<%= element.id %>">Read More</a>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</body>
+</html>
